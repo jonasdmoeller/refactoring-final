@@ -13,7 +13,7 @@ public class ClientRepositoryTests
         var sut = new ClientRepository();
         
         // Act
-        var actual = ClientRepository.GetById(1);
+        var actual = sut.GetById(1);
 
         // Assert
         actual.Name.Should().Be("Zeus");
@@ -26,7 +26,7 @@ public class ClientRepositoryTests
         var sut = new ClientRepository();
         
         // Act
-        var action = () => ClientRepository.GetById(-1);
+        var action = () => sut.GetById(-1);
         
         // Assert
         action.Should().Throw<Exception>().WithMessage("Client not found");

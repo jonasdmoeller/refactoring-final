@@ -12,10 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Assets\clients.json" />
-      <EmbeddedResource Include="Assets\clients.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </EmbeddedResource>
+      <None Include="Assets\users.json" />
     </ItemGroup>
 
 </Project>

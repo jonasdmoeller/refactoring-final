@@ -1,21 +1,23 @@
 ﻿using System;
 
-namespace LegacyApp.Consumer
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            AddUser(args);
-        }
+namespace LegacyApp.Consumer;
 
-        public static void AddUser(string[] args)
-        {
-            // DO NOT CHANGE THIS FILE AT ALL
+class Program
+{
+    static void Main(string[] args)
+    {
+        AddUser(args);
+    }
+
+    public static void AddUser(string[] args)
+    {
+        // DO NOT CHANGE THIS FILE AT ALL
             
-            var userService = new UserService();
-            var addResult = userService.AddUser("John", "Doe", "John.doe@gmail.com", new DateTime(1993, 1, 1), 4);
-            Console.WriteLine("Adding John Doe was " + (addResult ? "successful" : "unsuccessful"));
-        }
+        var userService = new UserService();
+        var addResult = userService.AddUser("Magni", "Thorson", "magni@northerngods.com", new DateTime(1993, 1, 1), 4);
+        Console.WriteLine("Adding Magni was " + (addResult ? "successful" : "unsuccessful"));
+        addResult = userService.AddUser("Modi", "Thorson", "modi@northerngods.com", new DateTime(1993, 1, 1), 4);
+        Console.WriteLine("Adding Modi was " + (addResult ? "successful" : "unsuccessful"));
+        Console.ReadLine();
     }
 }
