@@ -1,42 +1,32 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using Newtonsoft.Json;
 
-namespace LegacyApp
+namespace LegacyApp;
+
+public class ClientRepository
 {
-    public class ClientRepository
+    public static Client GetById(int id)
     {
-        public Client GetById(int id)
+        var jsonString = GetDocumentAsString();
+        var clients = JsonConvert.DeserializeObject<List<Client>>(jsonString);
+        var client = clients.FirstOrDefault(c => c.Id == id);
+        
+        if (client == null)
         {
-            Client client = null;
-            var connectionString = ConfigurationManager.ConnectionStrings["appDatabase"].ConnectionString;
-
-            using (var connection = new SqlConnection(connectionString))
-            {
-                var command = new SqlCommand
-                {
-                    Connection = connection,
-                    CommandType = CommandType.StoredProcedure,
-                    CommandText = "uspGetClientById"
-                };
-
-                var parametr = new SqlParameter("@clientId", SqlDbType.Int) { Value = id };
-                command.Parameters.Add(parametr);
-                
-                connection.Open();
-                var reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-                while (reader.Read())
-                {
-                    client = new Client
-                    {
-                        Id = int.Parse(reader["ClientId"].ToString()),
-                        Name = reader["Name"].ToString(),
-                        ClientStatus = (ClientStatus) int.Parse(reader["ClientStatus"].ToString())
-                    };
-                }
-            }
-
-            return client;
+            throw new Exception("Client not found");
         }
+
+        return client;
+    }
+
+    private static string GetDocumentAsString()
+    {
+        using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LegacyApp.Assets.clients.json");
+        using var reader = new StreamReader(stream!);
+        return reader.ReadToEnd();
     }
 }

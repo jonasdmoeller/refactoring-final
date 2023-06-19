@@ -30,7 +30,7 @@ namespace LegacyApp
             }
 
             var clientRepository = new ClientRepository();
-            var client = clientRepository.GetById(clientId);
+            var client = ClientRepository.GetById(clientId);
 
             var user = new User
             {

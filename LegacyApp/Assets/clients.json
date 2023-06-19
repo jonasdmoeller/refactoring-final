@@ -1,0 +1,107 @@
+[
+  {
+    "Id": "1",
+    "Name": "Zeus",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "2",
+    "Name": "Hades",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "3",
+    "Name": "Poseidon",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "4",
+    "Name": "Athena",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "5",
+    "Name": "Ares",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "6",
+    "Name": "Apollo",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "7",
+    "Name": "Artemis",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "8",
+    "Name": "Aphrodite",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "9",
+    "Name": "Hermes",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "10",
+    "Name": "Hephaestus",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "11",
+    "Name": "Demeter",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "12",
+    "Name": "Dionysus",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "13",
+    "Name": "Hestia",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "14",
+    "Name": "Hera",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "15",
+    "Name": "Persephone",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "16",
+    "Name": "Hecate",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "17",
+    "Name": "Nike",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "18",
+    "Name": "Janus",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "19",
+    "Name": "Nemesis",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "20",
+    "Name": "Tyche",
+    "ClientStatus": 0
+  },
+  {
+    "Id": "21",
+    "Name": "Eros",
+    "ClientStatus": 0
+  }
+]
