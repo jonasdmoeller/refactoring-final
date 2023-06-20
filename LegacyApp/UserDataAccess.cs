@@ -15,8 +15,8 @@ public class UserDataAccess
         var usersString = JsonConvert.SerializeObject(users);
         File.WriteAllText(GetUsersFilePath(), usersString);
     }
-        
-    public IEnumerable<User> GetUsers()
+
+    private IEnumerable<User> GetUsers()
     {
         var usersString = File.ReadAllText(GetUsersFilePath());
         return JsonConvert.DeserializeObject<IEnumerable<User>>(usersString);
