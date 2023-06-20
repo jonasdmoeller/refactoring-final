@@ -6,10 +6,7 @@ public class UserService
 {
     public bool AddUser(string firname, string surname, string email, DateTime dateOfBirth, int clientId)
     {
-        if (string.IsNullOrEmpty(firname) || string.IsNullOrEmpty(surname))
-        {
-            return false;
-        }
+        if (NameIsInvalid(firname, surname)) return false;
 
         if (email.Contains("@") && !email.Contains("."))
         {
@@ -72,5 +69,10 @@ public class UserService
         new UserDataAccess().AddUser(user);
 
         return true;
+    }
+
+    private static bool NameIsInvalid(string firname, string surname)
+    {
+        return string.IsNullOrEmpty(firname) || string.IsNullOrEmpty(surname);
     }
 }

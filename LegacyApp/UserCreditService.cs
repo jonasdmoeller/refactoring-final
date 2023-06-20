@@ -12,6 +12,6 @@ public class UserCreditService
     }
     public int GetCreditLimit(string firstname, string surname, DateTime dateOfBirth)
     {
-        return firstname.Contains('r') ? 0 : _rand.Next(1, 20000);
+        return firstname.Contains('r') ? 0 : _rand.Next(500, 20000);
     }
 }
