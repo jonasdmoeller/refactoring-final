@@ -10,18 +10,7 @@ public class UserService
 
         if (EmailIsInvalid(email)) return false;
 
-        var now = DateTime.Now;
-        int age = now.Year - dateOfBirth.Year;
-
-        if (now.Month < dateOfBirth.Month || (now.Month == dateOfBirth.Month && now.Day < dateOfBirth.Day))
-        {
-            age--;
-        }
-
-        if (age < 21)
-        {
-            return false;
-        }
+        if (AgeIsInvalid(dateOfBirth)) return false;
 
         var clientRepository = new ClientRepository();
         var client = clientRepository.GetById(clientId);
@@ -66,6 +55,24 @@ public class UserService
         new UserDataAccess().AddUser(user);
 
         return true;
+    }
+
+    private static bool AgeIsInvalid(DateTime dateOfBirth)
+    {
+        var now = DateTime.Now;
+        int age = now.Year - dateOfBirth.Year;
+
+        if (now.Month < dateOfBirth.Month || (now.Month == dateOfBirth.Month && now.Day < dateOfBirth.Day))
+        {
+            age--;
+        }
+
+        if (age < 21)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private static bool EmailIsInvalid(string email)
