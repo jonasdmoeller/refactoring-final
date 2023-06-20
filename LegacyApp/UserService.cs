@@ -4,14 +4,11 @@ namespace LegacyApp;
 
 public class UserService
 {
-    public bool AddUser(string firname, string surname, string email, DateTime dateOfBirth, int clientId)
+    public bool AddUser(string firstName, string lastName, string email, DateTime dateOfBirth, int clientId)
     {
-        if (NameIsInvalid(firname, surname)) return false;
+        if (NameIsInvalid(firstName, lastName)) return false;
 
-        if (email.Contains("@") && !email.Contains("."))
-        {
-            return false;
-        }
+        if (EmailIsInvalid(email)) return false;
 
         var now = DateTime.Now;
         int age = now.Year - dateOfBirth.Year;
@@ -34,8 +31,8 @@ public class UserService
             ClientId = client.Id,
             DateOfBirth = dateOfBirth,
             EmailAddress = email,
-            Firstname = firname,
-            Surname = surname
+            Firstname = firstName,
+            Surname = lastName
         };
 
         if (client.Name == "VeryImportantClient")
@@ -71,8 +68,13 @@ public class UserService
         return true;
     }
 
-    private static bool NameIsInvalid(string firname, string surname)
+    private static bool EmailIsInvalid(string email)
     {
-        return string.IsNullOrEmpty(firname) || string.IsNullOrEmpty(surname);
+        return email.Contains("@") && !email.Contains(".");
+    }
+
+    private static bool NameIsInvalid(string firstName, string lastName)
+    {
+        return string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName);
     }
 }
